@@ -19,6 +19,7 @@ public class Camera : MonoBehaviour
     {
         if (transform.rotation.y == turret.rotation.y)
         {
+            dir = new Vector3(0, Mathf.Lerp(transform.rotation.y, transform.rotation.y, smoothTime), 0);
             smoothTime = 0;
         }
         else
@@ -26,11 +27,17 @@ public class Camera : MonoBehaviour
             dir = new Vector3(0, Mathf.Lerp(transform.rotation.y, turret.rotation.y, smoothTime), 0);
             if(smoothTime < 1)
             {
-                smoothTime += Time.deltaTime;
+                smoothTime += 5 * Time.deltaTime;
+            }
+            if(smoothTime > 1)
+            {
+                smoothTime = 1;
             }
             
-        }       
-        dir = dir * 115.2f;
+        }
+         dir = dir * 115f;
+        dir.y = Mathf.Round(dir.y * 10) / 10;
+        
         transform.rotation = Quaternion.Euler(dir);
 
 
