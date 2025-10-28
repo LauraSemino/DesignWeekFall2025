@@ -7,6 +7,7 @@ public class RotaryScript : MonoBehaviour
 {
     Encoder encoder;
     public float pos;
+    public Vector3 facingDir;
     void Start()
     {
         encoder = new Encoder();
@@ -18,6 +19,11 @@ public class RotaryScript : MonoBehaviour
     void Update()
     {
         pos = encoder.Position;
+        facingDir = new Vector3 (transform.rotation.x, transform.rotation.y, transform.rotation.z);
+
+        facingDir.y = pos;
+       
+        transform.rotation = Quaternion.Euler(facingDir);
     }
 
     private void OnApplicationQuit()
