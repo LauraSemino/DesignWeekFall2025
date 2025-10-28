@@ -17,13 +17,18 @@ public class RotaryScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {          
         pos = encoder.Position;
         facingDir = new Vector3 (transform.rotation.x, transform.rotation.y, transform.rotation.z);
 
-        facingDir.y = pos;
-       
+        facingDir.y = pos*3.6f;
+
         transform.rotation = Quaternion.Euler(facingDir);
+    
+    }
+    private void FixedUpdate()
+    {
+        
     }
 
     private void OnApplicationQuit()
