@@ -13,7 +13,9 @@ public class RotaryScript : MonoBehaviour
     public Vector3 facingDir;
 
     public RectTransform crosshair;
-    
+
+    public GameObject projectile;
+    public float charge;
     void Start()
     {
         encoder = new Encoder();
@@ -54,10 +56,45 @@ public class RotaryScript : MonoBehaviour
             crosshair.anchoredPosition = new Vector3(-512, 0, 0);
         }
 
+
+        //firing (replace with proper input when available)
+        if (Input.GetKey(KeyCode.Space))
+        {
+            charge += 5f * Time.deltaTime;
+            if(charge >= 15f)
+            {
+                charge = 0;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if(charge >= 5)
+            {
+                Fire();
+            }
+            else
+            {
+                charge = 0;
+                //potentially do a malfunction here
+            }
+          
+        }
     }
     private void FixedUpdate()
     {
         
+    }
+
+    void Fire()
+    {
+        GameObject p;
+        p = Instantiate(projectile);
+        p.transform.position = new Vector3 (0,1,0);
+        p.GetComponent<Projectile>().speed = charge;
+        charge = 0;
+        p.GetComponent<Projectile>().direction = new Vector3(crosshair.anchoredPosition.x/500,0,1);
+        p.GetComponent<Projectile>().damage = 1f;
+
     }
 
     private void OnApplicationQuit()
