@@ -15,15 +15,20 @@ public class ReloadScript : MonoBehaviour
     float charge;
     public Slider chargeUI;
     float shootDistance;
+
+    public RotaryScript rs;
+
     void Start()
     {
-        isBroken = true;
+        //isBroken = true;
         Repair();
     }
 
     // Update is called once per frame
     void Update()
     {
+        isBroken = rs.isBroken;
+
         if (isBroken)
         {
             //randomize repair event

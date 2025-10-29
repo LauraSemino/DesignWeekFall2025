@@ -64,7 +64,7 @@ public class RotaryScript : MonoBehaviour
 
 
         //firing (replace with proper input when available)
-        if (bs.pullCordState == true)
+        if (bs.pullCordState == true && isBroken == false)
         {
             charge += 5f * Time.deltaTime;
             if(charge >= 15f)
@@ -73,7 +73,7 @@ public class RotaryScript : MonoBehaviour
                 //do a malfunction here
             }
         }
-        if (bs.pullCordState == false)
+        if (bs.pullCordState == false && isBroken == false)
         {
             if(charge >= 5)
             {

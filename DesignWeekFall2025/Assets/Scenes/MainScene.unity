@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 1054443405}
   - component: {fileID: 1054443409}
   - component: {fileID: 1054443410}
+  - component: {fileID: 1054443411}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -712,6 +713,7 @@ MonoBehaviour:
   charge: 0
   chargeUI: {fileID: 2085357033}
   bs: {fileID: 1054443410}
+  isBroken: 0
 --- !u!114 &1054443410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +727,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullCordState: 0
+--- !u!114 &1054443411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054443404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160efcbe86a235a47972fb3642ab722a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBroken: 0
+  isReload: 0
+  warningText: {fileID: 0}
+  repairType: 0
+  strings: []
+  reloadingTime: 0
+  chargeUI: {fileID: 0}
 --- !u!1 &1156126905
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +820,7 @@ MonoBehaviour:
   - 
   - 
   reloadingTime: 0
+  chargeUI: {fileID: 0}
 --- !u!4 &1311134760
 Transform:
   m_ObjectHideFlags: 0
