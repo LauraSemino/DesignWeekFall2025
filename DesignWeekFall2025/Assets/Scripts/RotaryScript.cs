@@ -18,6 +18,8 @@ public class RotaryScript : MonoBehaviour
     public GameObject projectile;
     public float charge;
     public Slider chargeUI;
+
+    public ButtonScript bs;
     void Start()
     {
         encoder = new Encoder();
@@ -60,7 +62,7 @@ public class RotaryScript : MonoBehaviour
 
 
         //firing (replace with proper input when available)
-        if (Input.GetKey(KeyCode.Space))
+        if (bs.pullCordState == true)
         {
             charge += 5f * Time.deltaTime;
             if(charge >= 15f)
@@ -69,7 +71,7 @@ public class RotaryScript : MonoBehaviour
                 //do a malfunction here
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (bs.pullCordState == false)
         {
             if(charge >= 5)
             {

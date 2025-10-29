@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 1054443406}
   - component: {fileID: 1054443405}
   - component: {fileID: 1054443409}
+  - component: {fileID: 1054443410}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -710,6 +711,20 @@ MonoBehaviour:
   projectile: {fileID: 56257117419188429, guid: 8ac29916f86b72845a8b822de2633058, type: 3}
   charge: 0
   chargeUI: {fileID: 2085357033}
+  bs: {fileID: 1054443410}
+--- !u!114 &1054443410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054443404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a650941ccb3b2c488e7a0a56e786d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullCordState: 0
 --- !u!1 &1156126905
 GameObject:
   m_ObjectHideFlags: 0
