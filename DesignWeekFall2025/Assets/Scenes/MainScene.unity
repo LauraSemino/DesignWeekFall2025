@@ -513,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35d34c0a24f4bb44aa371b88efa32f6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88d5072ee912c1949b8a7424600d42ed, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054443404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a650941ccb3b2c488e7a0a56e786d43, type: 3}
   m_Name: 
@@ -741,11 +741,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBroken: 0
   isReload: 0
-  warningText: {fileID: 0}
+  warningText: {fileID: 2016557021}
   repairType: 0
-  strings: []
-  reloadingTime: 0
-  chargeUI: {fileID: 0}
+  strings:
+  - Pull 1
+  - Push 2
+  - Tap 3
+  reloadingTime: 0.25
+  rs: {fileID: 1054443409}
 --- !u!1 &1156126905
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,60 +785,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1311134758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1311134760}
-  - component: {fileID: 1311134759}
-  m_Layer: 0
-  m_Name: MalfunctionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1311134759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311134758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160efcbe86a235a47972fb3642ab722a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBroken: 0
-  isReload: 0
-  warningText: {fileID: 2016557021}
-  repairType: 0
-  strings:
-  - 
-  - 
-  - 
-  reloadingTime: 0
-  chargeUI: {fileID: 0}
---- !u!4 &1311134760
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311134758}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331512995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,4 +1525,3 @@ SceneRoots:
   - {fileID: 1526786900}
   - {fileID: 1765296749}
   - {fileID: 181579510}
-  - {fileID: 1311134760}

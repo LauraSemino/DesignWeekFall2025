@@ -12,9 +12,11 @@ public class ReloadScript : MonoBehaviour
     float time;
     public float reloadingTime;
     int ExNum;
-    float charge;
+    /*
     public Slider chargeUI;
+    float charge;
     float shootDistance;
+    */
 
     public RotaryScript rs;
 
@@ -73,20 +75,14 @@ public class ReloadScript : MonoBehaviour
                         warningText.text = "RELOADING";
                     }
                 }
-
             }
-            if (!isReload)
-            {
-                chargeShoot();
-            }
-            //AFTER RELOADING BREAK GUN
         }
 
     }
     void Repair()
     {
         repairType = RandomNumberInRangeExcluding(3);
-        isBroken = false;
+        rs.isBroken = false;
         isReload = true;
         Debug.Log(repairType);
     }
@@ -99,42 +95,5 @@ public class ReloadScript : MonoBehaviour
         }
         ExNum = r;
         return r;
-    }
-    void chargeShoot()
-    {
-        chargeUI.value = charge;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            if (charge <= 1)
-            {
-                charge += Time.deltaTime / 2;
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            shoot();
-        }
-    }
-    void shoot()
-    {
-        if (charge >= 0.33)
-        {
-            shootDistance = charge * shootDistance;
-            Debug.Log("Shoot");
-        }
-        if (charge <= 0.33)
-        {
-            shootDistance = 0;
-            Debug.Log("Fail");
-        }
-
-        int breakChance;
-        breakChance = Random.Range(0, 5);
-        if (breakChance == 1)
-        {
-            isBroken = true;
-            Debug.Log("break");
-        }
-        charge = 0;
     }
 }
