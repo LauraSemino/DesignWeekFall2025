@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.UIElements;
+using UnityEngine.UI;
 
 public class RotaryScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class RotaryScript : MonoBehaviour
 
     public GameObject projectile;
     public float charge;
+    public Slider chargeUI;
     void Start()
     {
         encoder = new Encoder();
@@ -64,6 +66,7 @@ public class RotaryScript : MonoBehaviour
             if(charge >= 15f)
             {
                 charge = 0;
+                //do a malfunction here
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
@@ -79,6 +82,7 @@ public class RotaryScript : MonoBehaviour
             }
           
         }
+        chargeUI.value = charge/15;
     }
     private void FixedUpdate()
     {
