@@ -12,6 +12,13 @@ public class ReloadScript : MonoBehaviour
     float time;
     public float reloadingTime;
     int ExNum;
+
+    public TurnyThing tt;
+
+    //crank fix
+    public bool check1 = false;
+    public bool check2 = false;
+
     /*
     public Slider chargeUI;
     float charge;
@@ -23,14 +30,16 @@ public class ReloadScript : MonoBehaviour
     void Start()
     {
         //isBroken = true;
-        Repair();
+        //Repair();
+
+        warningText.text = null;
     }
 
     // Update is called once per frame
     void Update()
     {
         isBroken = rs.isBroken;
-
+        
         if (isBroken)
         {
             //randomize repair event
@@ -38,9 +47,22 @@ public class ReloadScript : MonoBehaviour
             {
                 case 0:
                     warningText.text = strings[0];
-                    if (Input.GetKeyDown(KeyCode.R))
+                    
+                    if (tt.output <= 30)
+                    {
+                        Debug.Log("check 1");
+                        check1 = true; 
+                    }
+                    if (tt.output >= 95)
+                    {   
+                        Debug.Log("check 2");
+                        check2 = true; 
+                    }
+                    if(check1 && check2 == true)
                     {
                         Repair();
+                        check1 = false;
+                        check2 = false;
                     }
                     break;
                 case 1:
@@ -68,11 +90,12 @@ public class ReloadScript : MonoBehaviour
                     if (time > reloadingTime)
                     {
                         time = 0;
+                        warningText.text = null;
                         isReload = false;
                     }
                     else
                     {
-                        warningText.text = "RELOADING";
+                        warningText.text = "FIXING";
                     }
                 }
             }

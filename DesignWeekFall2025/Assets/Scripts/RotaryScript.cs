@@ -87,6 +87,13 @@ public class RotaryScript : MonoBehaviour
           
         }
         chargeUI.value = charge/15;
+
+
+        //debug break
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            isBroken = true;
+        }
     }
     private void FixedUpdate()
     {
