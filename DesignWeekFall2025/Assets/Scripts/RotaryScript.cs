@@ -33,7 +33,6 @@ public class RotaryScript : MonoBehaviour
         //modifies the crosshair position
         Vector3 cpos;
         cpos = new Vector3(pos * 32,0,0);
-
         if(crosshair.anchoredPosition.x != cpos.x && smoothTime < 1)
         {
             smoothTime += 10 * Time.deltaTime;
@@ -43,14 +42,17 @@ public class RotaryScript : MonoBehaviour
             smoothTime = 1;
         }
         crosshair.anchoredPosition = new Vector3(Mathf.Lerp(crosshair.anchoredPosition.x, cpos.x, smoothTime), 0, 0);
-        if (cpos.x < 401 && cpos.x > -401)
-        {
-            
-            
-           // crosshair.anchoredPosition = cpos;           
-        }
         smoothTime = 0;
 
+        //clamps the distance of the crosshair
+        if (crosshair.anchoredPosition.x > 512)
+        {
+            crosshair.anchoredPosition = new Vector3 (512,0,0);
+        }
+        if (crosshair.anchoredPosition.x < -512)
+        {
+            crosshair.anchoredPosition = new Vector3(-512, 0, 0);
+        }
 
     }
     private void FixedUpdate()
