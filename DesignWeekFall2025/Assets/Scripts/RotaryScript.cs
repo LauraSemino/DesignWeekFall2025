@@ -20,6 +20,8 @@ public class RotaryScript : MonoBehaviour
     public Slider chargeUI;
 
     public ButtonScript bs;
+
+    public bool isBroken;
     void Start()
     {
         encoder = new Encoder();
@@ -100,6 +102,14 @@ public class RotaryScript : MonoBehaviour
         charge = 0;
         p.GetComponent<Projectile>().direction = new Vector3(crosshair.anchoredPosition.x/500,0,1);
         p.GetComponent<Projectile>().damage = 1f;
+        int breakChance;
+        breakChance = Random.Range(0, 5);
+        if (breakChance == 1)
+        {
+            isBroken = true;
+            Debug.Log("break");
+        }
+
 
     }
 
