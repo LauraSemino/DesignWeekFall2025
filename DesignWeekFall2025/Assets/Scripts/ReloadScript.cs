@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReloadScript : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class ReloadScript : MonoBehaviour
     float time;
     public float reloadingTime;
     int ExNum;
+    float charge;
+    public Slider chargeUI;
+    float shootDistance;
     void Start()
     {
         isBroken = true;
@@ -27,21 +31,21 @@ public class ReloadScript : MonoBehaviour
             {
                 case 0:
                     warningText.text = strings[0];
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.R))
                     {
                         Repair();
                     }
                     break;
                 case 1:
                     warningText.text = strings[1];
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.R))
                     {
                         Repair();
                     }
                     break;
                 case 2:
                     warningText.text = strings[2];
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.R))
                     {
                         Repair();
                     }
@@ -67,8 +71,8 @@ public class ReloadScript : MonoBehaviour
 
             }
             if (!isReload)
-            { 
-                isBroken = true;
+            {
+                chargeShoot();
             }
             //AFTER RELOADING BREAK GUN
         }
@@ -90,6 +94,43 @@ public class ReloadScript : MonoBehaviour
         }
         ExNum = r;
         return r;
+    }
+    void chargeShoot()
+    {
+        chargeUI.value = charge;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (charge <= 1)
+            {
+                charge += Time.deltaTime/2;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            shoot();
+        }
+    }
+    void shoot()
+    {
+        if (charge >= 0.33)
+        {
+            shootDistance = charge * shootDistance;
+            Debug.Log("Shoot");
+        }
+        if (charge <= 0.33)
+        {
+            shootDistance = 0;
+            Debug.Log("Fail");
+        }
+
+        int breakChance;
+        breakChance = Random.Range(0, 5);
+        if (breakChance == 1)
+        {
+            isBroken = true;
+            Debug.Log("break");
+        }
+        charge = 0;
     }
 }
 
