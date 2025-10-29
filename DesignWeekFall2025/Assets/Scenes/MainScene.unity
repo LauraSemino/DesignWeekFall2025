@@ -825,6 +825,8 @@ MonoBehaviour:
   - Tap 3
   reloadingTime: 0.5
   tt: {fileID: 1054443412}
+  check1: 0
+  check2: 0
   rs: {fileID: 1054443409}
 --- !u!114 &1054443412
 MonoBehaviour:
@@ -1002,6 +1004,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362429402}
+  - component: {fileID: 1362429403}
+  - component: {fileID: 1362429404}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -1025,6 +1029,43 @@ Transform:
   - {fileID: 1160491264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362429403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362429401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2734b5be0557ec4dbbeb9ad35fdd7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  target: {fileID: 1054443404}
+--- !u!136 &1362429404
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362429401}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: -0.25, y: 1.5, z: 1}
 --- !u!1 &1434275453
 GameObject:
   m_ObjectHideFlags: 0
