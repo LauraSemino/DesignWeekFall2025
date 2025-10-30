@@ -13,6 +13,9 @@ public class ReloadScript : MonoBehaviour
     float time;
     public float reloadingTime;
     int ExNum;
+    public AudioClip[] audioClips;
+    public AudioSource reloadSound;
+    bool errorSound;
 
 
     public MashButtonScript mb;
@@ -54,7 +57,13 @@ public class ReloadScript : MonoBehaviour
         isBroken = rs.isBroken;
         
          if (isBroken)
-        {           
+        {
+            if (!errorSound)
+            {
+                reloadSound.clip = audioClips[1];
+                reloadSound.Play();
+                errorSound = true;
+            }
             tc += Time.deltaTime;
             if(tc > 0 && tc <= 15)
             {
@@ -127,7 +136,10 @@ public class ReloadScript : MonoBehaviour
     }
     void Repair()
     {
+        reloadSound.clip = audioClips[0];
+        reloadSound.Play();
         repairType = Random.Range(0, 2);
+        errorSound = false;
         rs.isBroken = false;
         isReload = true;
         Debug.Log(repairType);
