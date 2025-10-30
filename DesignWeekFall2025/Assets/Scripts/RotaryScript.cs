@@ -19,6 +19,8 @@ public class RotaryScript : MonoBehaviour
     public float charge;
     public Slider chargeUI;
 
+    public Camera cam;
+
     public ButtonScript bs;
 
     public bool isBroken;
@@ -27,6 +29,8 @@ public class RotaryScript : MonoBehaviour
         encoder = new Encoder();
         encoder.Open();
         encoder.HubPort = 3;
+
+        //cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -110,7 +114,7 @@ public class RotaryScript : MonoBehaviour
         p.GetComponent<Projectile>().speed = charge;
         p.GetComponent<Projectile>().damage = charge/5;
         charge = 0;
-        p.GetComponent<Projectile>().direction = new Vector3(crosshair.anchoredPosition.x/500,0,1);
+        p.GetComponent<Projectile>().direction = cam.ScreenPointToRay(crosshair.transform.position).direction;
         int breakChance;
         breakChance = Random.Range(0, 5);
         if (breakChance == 1)

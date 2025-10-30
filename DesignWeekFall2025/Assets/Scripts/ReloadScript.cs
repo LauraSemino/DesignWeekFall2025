@@ -52,7 +52,7 @@ public class ReloadScript : MonoBehaviour
                     {
                         check1 = true; 
                     }
-                    if (tt.output >= 95)
+                    if (tt.output >= 70)
                     {       
                         check2 = true; 
                     }
