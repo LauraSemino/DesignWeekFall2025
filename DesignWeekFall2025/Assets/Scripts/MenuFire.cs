@@ -33,6 +33,7 @@ public class MenuFire : MonoBehaviour
             {
                 SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
                 SceneManager.UnloadSceneAsync("GameOver");
+                SceneManager.UnloadSceneAsync("TitleScreen");
             }
             else
             {
