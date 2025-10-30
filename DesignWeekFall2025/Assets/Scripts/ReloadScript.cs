@@ -64,7 +64,7 @@ public class ReloadScript : MonoBehaviour
                 reloadSound.Play();
                 errorSound = true;
             }
-            tc += Time.deltaTime;
+           /* tc += Time.deltaTime;
             if(tc > 0 && tc <= 15)
             {
                 warningText.color = lblue;
@@ -73,7 +73,7 @@ public class ReloadScript : MonoBehaviour
             {
                 warningText.color = dblue;
                 tc = 0;
-            }
+            }*/
             //randomize repair event
             switch (repairType)
             {

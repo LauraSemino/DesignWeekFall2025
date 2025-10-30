@@ -94,11 +94,13 @@ public class RotaryScript : MonoBehaviour
             {
                 Fire();
                 chargeSoundPlayed = false;
+                chargeSound.Stop();
             }
             else
             {
                 charge = 0;
                 chargeSoundPlayed = false;
+                chargeSound.Stop();
                 //potentially do a malfunction here
             }
           
