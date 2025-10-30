@@ -13,7 +13,7 @@ public class ReloadScript : MonoBehaviour
     public float reloadingTime;
     int ExNum;
 
-    public TurnyThing tt;
+  //  public TurnyThing tt;
 
     //crank fix
     public bool check1 = false;
@@ -40,7 +40,7 @@ public class ReloadScript : MonoBehaviour
     {
         isBroken = rs.isBroken;
         
-        if (isBroken)
+     /*   if (isBroken)
         {
             //randomize repair event
             switch (repairType)
@@ -98,7 +98,7 @@ public class ReloadScript : MonoBehaviour
                 }
             }
         }
-
+     */
     }
     void Repair()
     {
