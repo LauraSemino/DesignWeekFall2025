@@ -13,11 +13,15 @@ public class ReloadScript : MonoBehaviour
     public float reloadingTime;
     int ExNum;
 
-  //  public TurnyThing tt;
+
+    public MashButtonScript mb;
+    public float mashVal;
+    bool isPressed;
+    //  public TurnyThing tt;
 
     //crank fix
-    public bool check1 = false;
-    public bool check2 = false;
+    // public bool check1 = false;
+    //  public bool check2 = false;
 
     /*
     public Slider chargeUI;
@@ -31,7 +35,7 @@ public class ReloadScript : MonoBehaviour
     {
         //isBroken = true;
         //Repair();
-
+        mashVal = 0;
         warningText.text = null;
     }
 
@@ -40,7 +44,7 @@ public class ReloadScript : MonoBehaviour
     {
         isBroken = rs.isBroken;
         
-     /*   if (isBroken)
+         if (isBroken)
         {
             //randomize repair event
             switch (repairType)
@@ -48,20 +52,21 @@ public class ReloadScript : MonoBehaviour
                 case 0:
                     warningText.text = strings[0];
                     
-                    if (tt.output <= 30)
+                    if(mb.buttonState == false)
                     {
-                        check1 = true; 
+                        isPressed = false;
                     }
-                    if (tt.output >= 70)
-                    {       
-                        check2 = true; 
+                    if(mb.buttonState == true && isPressed == false)
+                    {
+                        isPressed = true;
+                        mashVal += 1;
                     }
-                    if(check1 && check2 == true)
+                    if (mashVal >= 10)
                     {
                         Repair();
-                        check1 = false;
-                        check2 = false;
+                        mashVal = 0;
                     }
+
                     break;
                 case 1:
                     warningText.text = strings[1];
@@ -98,11 +103,11 @@ public class ReloadScript : MonoBehaviour
                 }
             }
         }
-     */
+     
     }
     void Repair()
     {
-        // repairType = RandomNumberInRangeExcluding(3);
+        //repairType = RandomNumberInRangeExcluding(3);
         repairType = 0;
         rs.isBroken = false;
         isReload = true;

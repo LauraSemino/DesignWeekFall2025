@@ -975,12 +975,12 @@ MonoBehaviour:
   warningText: {fileID: 2016557021}
   repairType: 0
   strings:
-  - Twist the Blue Dial
+  - Mash the Red Button
   - Push 2
   - Tap 3
   reloadingTime: 0.5
-  check1: 0
-  check2: 0
+  mb: {fileID: 1054443412}
+  mashVal: 0
   rs: {fileID: 1054443409}
 --- !u!114 &1054443412
 MonoBehaviour:
@@ -989,12 +989,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054443404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115295461abc54e4b829a042aee522c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 490342755fd838d4fa9406db6e25c13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  output: 0
+  buttonState: 0
 --- !u!1 &1084685317
 GameObject:
   m_ObjectHideFlags: 0
