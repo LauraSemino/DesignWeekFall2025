@@ -104,7 +104,7 @@ public class RotaryScript : MonoBehaviour
     {
         GameObject p;
         p = Instantiate(projectile);
-        p.transform.position = new Vector3 (0,1,0);
+        p.transform.position = new Vector3 (0,2,0);
         p.GetComponent<Projectile>().speed = charge;
         charge = 0;
         p.GetComponent<Projectile>().direction = new Vector3(crosshair.anchoredPosition.x/500,0,1);
