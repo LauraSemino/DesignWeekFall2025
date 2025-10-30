@@ -90,7 +90,9 @@ public class RotaryScript : MonoBehaviour
         }
         if (bs.pullCordState == false && isBroken == false)
         {
-            if(charge >= 5)
+            chargeSoundPlayed = false;
+            chargeSound.Stop();
+            if (charge >= 5)
             {
                 Fire();
             }
@@ -101,7 +103,7 @@ public class RotaryScript : MonoBehaviour
             }
           
         }
-        if(bs.pullCordState == false)
+        if(isBroken == true)
         {
             chargeSoundPlayed = false;
             chargeSound.Stop();
