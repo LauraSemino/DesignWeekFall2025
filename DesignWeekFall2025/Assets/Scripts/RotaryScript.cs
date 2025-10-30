@@ -96,10 +96,10 @@ public class RotaryScript : MonoBehaviour
 
 
         //debug break
-        if (Input.GetKeyDown(KeyCode.B))
+      /*  if (Input.GetKeyDown(KeyCode.B))
         {
             isBroken = true;
-        }
+        }*/
     }
     private void FixedUpdate()
     {
@@ -130,5 +130,14 @@ public class RotaryScript : MonoBehaviour
     {
         encoder.Close();
         encoder.Dispose();
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //gameover;
+            Debug.Log("gameover");
+        }
     }
 }
