@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -7,6 +8,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject target;
     public GameObject entrance;
     GameObject currentTarget;
+    public Animator animator;
+    public ParticleSystem bloodParticles;
 
     public float health;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,8 +40,17 @@ public class EnemyAI : MonoBehaviour
         //>fuckin dies lmao
         if (health <= 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("isDead", true);
+            currentTarget = gameObject;
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+            {
+                Destroy(gameObject);
+            }
         }
-
+    }
+    public void damage()
+    {
+        bloodParticles.Play();
+        animator.SetTrigger("hurt");
     }
 }

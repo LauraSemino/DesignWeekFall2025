@@ -51,6 +51,8 @@ MonoBehaviour:
   speed: 0.3
   target: {fileID: 0}
   entrance: {fileID: 0}
+  animator: {fileID: 5184136315520100053}
+  bloodParticles: {fileID: 5426040693752821494}
   health: 2.5
 --- !u!136 &3704053230304819697
 CapsuleCollider:
@@ -184,6 +186,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 48ecb225fba00b843a9717f0dd18f877, type: 3}
   m_PrefabInstance: {fileID: 1628989332759485252}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &5184136315520100053 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 48ecb225fba00b843a9717f0dd18f877, type: 3}
+  m_PrefabInstance: {fileID: 1628989332759485252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5354984806227330532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -297,6 +304,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22557fccd955150488401a39ed6d69dc, type: 3}
+--- !u!198 &5426040693752821494 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 80379849209295634, guid: 22557fccd955150488401a39ed6d69dc, type: 3}
+  m_PrefabInstance: {fileID: 5354984806227330532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6708779390501575891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1678405602256460087, guid: 22557fccd955150488401a39ed6d69dc, type: 3}

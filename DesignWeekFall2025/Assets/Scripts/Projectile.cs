@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<EnemyAI>().health -= damage;
+            collision.gameObject.GetComponent<EnemyAI>().damage();
         }
     }
 
