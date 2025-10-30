@@ -665,6 +665,10 @@ MonoBehaviour:
   - {fileID: 1159738187}
   - {fileID: 1005902359}
   player: {fileID: 1054443404}
+  spawnTimer: 0
+  spawnOffset: 0
+  gameTimer: 0
+  zombieSpeed: 0
 --- !u!1 &897665288
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +979,6 @@ MonoBehaviour:
   - Push 2
   - Tap 3
   reloadingTime: 0.5
-  tt: {fileID: 1054443412}
   check1: 0
   check2: 0
   rs: {fileID: 1054443409}
