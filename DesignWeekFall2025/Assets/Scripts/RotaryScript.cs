@@ -93,17 +93,18 @@ public class RotaryScript : MonoBehaviour
             if(charge >= 5)
             {
                 Fire();
-                chargeSoundPlayed = false;
-                chargeSound.Stop();
             }
             else
             {
                 charge = 0;
-                chargeSoundPlayed = false;
-                chargeSound.Stop();
                 //potentially do a malfunction here
             }
           
+        }
+        if(bs.pullCordState == false)
+        {
+            chargeSoundPlayed = false;
+            chargeSound.Stop();
         }
         chargeUI.value = charge/15;
 
