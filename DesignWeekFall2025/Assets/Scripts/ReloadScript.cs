@@ -1,3 +1,4 @@
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,9 @@ public class ReloadScript : MonoBehaviour
     public PullButtonScript pb;
     bool start;
 
+    public Color lblue;
+    public Color dblue;
+    float tc;
     //  public TurnyThing tt;
 
     //crank fix
@@ -50,7 +54,17 @@ public class ReloadScript : MonoBehaviour
         isBroken = rs.isBroken;
         
          if (isBroken)
-        {
+        {           
+            tc += Time.deltaTime;
+            if(tc > 0 && tc <= 15)
+            {
+                warningText.color = lblue;
+            }
+            if (tc > 15 && tc <= 30)
+            {
+                warningText.color = dblue;
+                tc = 0;
+            }
             //randomize repair event
             switch (repairType)
             {
