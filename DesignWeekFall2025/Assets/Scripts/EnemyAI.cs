@@ -18,8 +18,6 @@ public class EnemyAI : MonoBehaviour
     {
         
         //targeting
-        
-
         if ((transform.position - entrance.transform.position).magnitude <= 0.3f)
         {
             currentTarget = target;
@@ -30,7 +28,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 facing = direction.normalized;
      
         //standard movement
-        transform.rotation = Quaternion.Euler(facing);
+        transform.rotation = Quaternion.LookRotation(facing);
         transform.position += speed * Time.deltaTime * direction.normalized;
     }
 
