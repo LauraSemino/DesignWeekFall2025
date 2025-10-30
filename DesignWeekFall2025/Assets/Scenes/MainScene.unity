@@ -970,7 +970,7 @@ MonoBehaviour:
   warningText: {fileID: 2016557021}
   repairType: 0
   strings:
-  - Pull 1
+  - Twist the Blue Dial
   - Push 2
   - Tap 3
   reloadingTime: 0.5
@@ -1734,8 +1734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit, \nsed do eiusmod
-    tempor incididunt \nut labore et dolore magna aliqua."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b0d6e60c46bdef46a481c642ed44955, type: 2}
   m_sharedMaterial: {fileID: -8838497330295625271, guid: 2b0d6e60c46bdef46a481c642ed44955, type: 2}

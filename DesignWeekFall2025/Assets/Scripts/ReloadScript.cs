@@ -50,12 +50,10 @@ public class ReloadScript : MonoBehaviour
                     
                     if (tt.output <= 30)
                     {
-                        Debug.Log("check 1");
                         check1 = true; 
                     }
                     if (tt.output >= 95)
-                    {   
-                        Debug.Log("check 2");
+                    {       
                         check2 = true; 
                     }
                     if(check1 && check2 == true)
@@ -104,7 +102,8 @@ public class ReloadScript : MonoBehaviour
     }
     void Repair()
     {
-        repairType = RandomNumberInRangeExcluding(3);
+        // repairType = RandomNumberInRangeExcluding(3);
+        repairType = 0;
         rs.isBroken = false;
         isReload = true;
         Debug.Log(repairType);

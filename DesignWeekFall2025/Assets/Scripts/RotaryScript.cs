@@ -70,6 +70,7 @@ public class RotaryScript : MonoBehaviour
             if(charge >= 15f)
             {
                 charge = 0;
+                isBroken = true;
                 //do a malfunction here
             }
         }
@@ -82,6 +83,7 @@ public class RotaryScript : MonoBehaviour
             else
             {
                 charge = 0;
+                isBroken = true;
                 //potentially do a malfunction here
             }
           
