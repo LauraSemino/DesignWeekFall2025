@@ -13,11 +13,19 @@ public class ReloadScript : MonoBehaviour
     public float reloadingTime;
     int ExNum;
 
-  //  public TurnyThing tt;
+
+    public MashButtonScript mb;
+    public float mashVal;
+    bool isPressed;
+
+    public PullButtonScript pb;
+    bool start;
+
+    //  public TurnyThing tt;
 
     //crank fix
-    public bool check1 = false;
-    public bool check2 = false;
+    // public bool check1 = false;
+    //  public bool check2 = false;
 
     /*
     public Slider chargeUI;
@@ -31,7 +39,8 @@ public class ReloadScript : MonoBehaviour
     {
         //isBroken = true;
         //Repair();
-
+        mashVal = 0;
+        start = true;
         warningText.text = null;
     }
 
@@ -40,7 +49,7 @@ public class ReloadScript : MonoBehaviour
     {
         isBroken = rs.isBroken;
         
-     /*   if (isBroken)
+         if (isBroken)
         {
             //randomize repair event
             switch (repairType)
@@ -48,33 +57,35 @@ public class ReloadScript : MonoBehaviour
                 case 0:
                     warningText.text = strings[0];
                     
-                    if (tt.output <= 30)
+                    if(mb.buttonState == false)
                     {
-                        check1 = true; 
+                        isPressed = false;
                     }
-                    if (tt.output >= 70)
-                    {       
-                        check2 = true; 
+                    if(mb.buttonState == true && isPressed == false)
+                    {
+                        isPressed = true;
+                        mashVal += 1;
                     }
-                    if(check1 && check2 == true)
+                    if (mashVal >= 10)
                     {
                         Repair();
-                        check1 = false;
-                        check2 = false;
+                        mashVal = 0;
                     }
+
                     break;
                 case 1:
                     warningText.text = strings[1];
-                    if (Input.GetKeyDown(KeyCode.R))
+                    
+                    if(start == true)
                     {
-                        Repair();
+                        isPressed = pb.pullCordState;
+                        start = false;
                     }
-                    break;
-                case 2:
-                    warningText.text = strings[2];
-                    if (Input.GetKeyDown(KeyCode.R))
+                    
+                    if (isPressed != pb.pullCordState)
                     {
                         Repair();
+                        start = true;  
                     }
                     break;
             }
@@ -98,24 +109,14 @@ public class ReloadScript : MonoBehaviour
                 }
             }
         }
-     */
+     
     }
     void Repair()
     {
-        // repairType = RandomNumberInRangeExcluding(3);
-        repairType = 0;
+        repairType = Random.Range(0, 2);
         rs.isBroken = false;
         isReload = true;
         Debug.Log(repairType);
     }
-    public int RandomNumberInRangeExcluding(int range)
-    {
-        int r = ExNum;
-        while (r == ExNum)
-        {
-            r = Random.Range(0, range);
-        }
-        ExNum = r;
-        return r;
-    }
+    
 }

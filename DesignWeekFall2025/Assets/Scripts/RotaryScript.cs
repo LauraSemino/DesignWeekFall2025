@@ -97,10 +97,10 @@ public class RotaryScript : MonoBehaviour
 
 
         //debug break
-      /*  if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             isBroken = true;
-        }*/
+        }
     }
     private void FixedUpdate()
     {

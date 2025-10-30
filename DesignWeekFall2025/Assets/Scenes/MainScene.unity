@@ -822,9 +822,10 @@ GameObject:
   - component: {fileID: 1054443406}
   - component: {fileID: 1054443405}
   - component: {fileID: 1054443409}
-  - component: {fileID: 1054443410}
   - component: {fileID: 1054443411}
+  - component: {fileID: 1054443410}
   - component: {fileID: 1054443412}
+  - component: {fileID: 1054443413}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -975,12 +976,12 @@ MonoBehaviour:
   warningText: {fileID: 2016557021}
   repairType: 0
   strings:
-  - Twist the Blue Dial
-  - Push 2
-  - Tap 3
+  - Mash the Red Button
+  - Pull the Gold Chain
   reloadingTime: 0.5
-  check1: 0
-  check2: 0
+  mb: {fileID: 1054443412}
+  mashVal: 0
+  pb: {fileID: 1054443413}
   rs: {fileID: 1054443409}
 --- !u!114 &1054443412
 MonoBehaviour:
@@ -989,12 +990,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054443404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115295461abc54e4b829a042aee522c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 490342755fd838d4fa9406db6e25c13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  output: 0
+  buttonState: 0
+--- !u!114 &1054443413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054443404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2dddf8d18e63641ab1038278219dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullCordState: 0
 --- !u!1 &1084685317
 GameObject:
   m_ObjectHideFlags: 0
