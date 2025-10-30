@@ -15,11 +15,7 @@ GameObject:
   - component: {fileID: 1741569105803535676}
   - component: {fileID: 5440178860648826854}
   - component: {fileID: 1270233659932323926}
-<<<<<<< HEAD
   - component: {fileID: 1573002391026589206}
-=======
-  - component: {fileID: 8904774025390432459}
->>>>>>> 0c367226fa7cb87a62070309b06afdfa82f7d1e6
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -297,11 +293,7 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
-<<<<<<< HEAD
 --- !u!114 &1573002391026589206
-=======
---- !u!114 &8904774025390432459
->>>>>>> 0c367226fa7cb87a62070309b06afdfa82f7d1e6
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,7 +316,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-<<<<<<< HEAD
 --- !u!1 &3202136289520240839
 GameObject:
   m_ObjectHideFlags: 0
@@ -14852,5 +14843,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
-=======
->>>>>>> 0c367226fa7cb87a62070309b06afdfa82f7d1e6
