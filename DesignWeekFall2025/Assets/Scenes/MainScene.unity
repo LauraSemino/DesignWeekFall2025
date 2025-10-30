@@ -1112,6 +1112,8 @@ MonoBehaviour:
   cam: {fileID: 330585545}
   bs: {fileID: 1054443410}
   isBroken: 0
+  chargeSound: {fileID: 1054443414}
+  audioClip: {fileID: 8300000, guid: b7fa127c2f415eb4381ed72512a91184, type: 3}
 --- !u!114 &1054443410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,7 +1195,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0

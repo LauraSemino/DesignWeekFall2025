@@ -25,6 +25,9 @@ public class RotaryScript : MonoBehaviour
     public ButtonScript bs;
 
     public bool isBroken;
+    public AudioSource chargeSound;
+    public AudioClip audioClip;
+    bool chargeSoundPlayed;
     void Start()
     {
         encoder = new Encoder();
@@ -71,6 +74,12 @@ public class RotaryScript : MonoBehaviour
         //firing (replace with proper input when available)
         if (bs.pullCordState == true && isBroken == false)
         {
+            if (!chargeSoundPlayed)
+            {
+                chargeSound.clip = audioClip;
+                chargeSound.Play();
+                chargeSoundPlayed = true;
+            }
             charge += 5f * Time.deltaTime;
             if(charge >= 15f)
             {
@@ -84,11 +93,12 @@ public class RotaryScript : MonoBehaviour
             if(charge >= 5)
             {
                 Fire();
+                chargeSoundPlayed = false;
             }
             else
             {
                 charge = 0;
-                
+                chargeSoundPlayed = false;
                 //potentially do a malfunction here
             }
           
