@@ -83,7 +83,7 @@ public class RotaryScript : MonoBehaviour
             else
             {
                 charge = 0;
-                isBroken = true;
+                
                 //potentially do a malfunction here
             }
           
@@ -111,7 +111,6 @@ public class RotaryScript : MonoBehaviour
         p.GetComponent<Projectile>().damage = charge/5;
         charge = 0;
         p.GetComponent<Projectile>().direction = new Vector3(crosshair.anchoredPosition.x/500,0,1);
-        p.GetComponent<Projectile>().damage = 1f;
         int breakChance;
         breakChance = Random.Range(0, 5);
         if (breakChance == 1)

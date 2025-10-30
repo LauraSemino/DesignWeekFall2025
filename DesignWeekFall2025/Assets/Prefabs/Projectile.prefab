@@ -124,3 +124,4 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   speed: 0
   damage: 0
+  despawnTimer: 0
