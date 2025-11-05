@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class MenuFire : MonoBehaviour
 {
-    public ButtonScript bs;
-
     public float charge;
     public Slider chargeUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,7 +15,7 @@ public class MenuFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bs.pullCordState == true)
+        if (Input.GetMouseButton(0) == true)
         {
             charge += 5f * Time.deltaTime;
             if (charge >= 15f)
@@ -27,7 +25,7 @@ public class MenuFire : MonoBehaviour
                 //do a malfunction here
             }
         }
-        if (bs.pullCordState == false)
+        if (!Input.GetMouseButton(0))
         {
             if (charge >= 5)
             {

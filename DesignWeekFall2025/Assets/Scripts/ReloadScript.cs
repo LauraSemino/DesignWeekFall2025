@@ -1,7 +1,5 @@
-using System.Threading;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ReloadScript : MonoBehaviour
 {
@@ -17,28 +15,11 @@ public class ReloadScript : MonoBehaviour
     public AudioSource reloadSound;
     bool errorSound;
 
-
-    public MashButtonScript mb;
     public float mashVal;
-    bool isPressed;
-
-    public PullButtonScript pb;
-    bool start;
 
     public Color lblue;
     public Color dblue;
     float tc;
-    //  public TurnyThing tt;
-
-    //crank fix
-    // public bool check1 = false;
-    //  public bool check2 = false;
-
-    /*
-    public Slider chargeUI;
-    float charge;
-    float shootDistance;
-    */
 
     public RotaryScript rs;
 
@@ -47,7 +28,6 @@ public class ReloadScript : MonoBehaviour
         //isBroken = true;
         //Repair();
         mashVal = 0;
-        start = true;
         warningText.text = null;
     }
 
@@ -55,8 +35,8 @@ public class ReloadScript : MonoBehaviour
     void Update()
     {
         isBroken = rs.isBroken;
-        
-         if (isBroken)
+
+        if (isBroken)
         {
             if (!errorSound)
             {
@@ -64,29 +44,13 @@ public class ReloadScript : MonoBehaviour
                 reloadSound.Play();
                 errorSound = true;
             }
-           /* tc += Time.deltaTime;
-            if(tc > 0 && tc <= 15)
-            {
-                warningText.color = lblue;
-            }
-            if (tc > 15 && tc <= 30)
-            {
-                warningText.color = dblue;
-                tc = 0;
-            }*/
-            //randomize repair event
             switch (repairType)
             {
                 case 0:
                     warningText.text = strings[0];
-                    
-                    if(mb.buttonState == false)
+
+                    if (Input.GetKeyDown(KeyCode.Q))
                     {
-                        isPressed = false;
-                    }
-                    if(mb.buttonState == true && isPressed == false)
-                    {
-                        isPressed = true;
                         mashVal += 1;
                     }
                     if (mashVal >= 10)
@@ -98,17 +62,63 @@ public class ReloadScript : MonoBehaviour
                     break;
                 case 1:
                     warningText.text = strings[1];
-                    
-                    if(start == true)
-                    {
-                        isPressed = pb.pullCordState;
-                        start = false;
-                    }
-                    
-                    if (isPressed != pb.pullCordState)
+
+                    if (Input.GetKeyDown(KeyCode.C))
                     {
                         Repair();
-                        start = true;  
+                    }
+                    break;
+                case 2:
+                    warningText.text = strings[2];
+
+                    if (Input.GetKeyDown(KeyCode.M))
+                    {
+                        Repair();
+                    }
+                    break;
+                case 3:
+                    warningText.text = strings[3];
+
+                    if (Input.GetKeyDown(KeyCode.P))
+                    {
+                        mashVal += 1;
+                    }
+                    if (mashVal >= 10)
+                    {
+                        Repair();
+                        mashVal = 0;
+                    }
+                    break;
+                case 4:
+                    warningText.text = strings[4];
+
+                    if (Input.GetKey(KeyCode.F))
+                    {
+                        if (Input.GetKey(KeyCode.G))
+                        {
+                            if (Input.GetKey(KeyCode.H))
+                            {
+                                Repair();
+                            }
+                        }
+                    }
+                    break;
+                case 5:
+                    warningText.text = strings[5];
+
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        Repair();
+
+                    }
+                    break;
+                case 6:
+                    warningText.text = strings[6];
+
+                    if (Input.mousePosition.y <= 100)
+                    {
+                        Repair();
+
                     }
                     break;
             }
@@ -132,17 +142,17 @@ public class ReloadScript : MonoBehaviour
                 }
             }
         }
-     
+
     }
     void Repair()
     {
         reloadSound.clip = audioClips[0];
         reloadSound.Play();
-        repairType = Random.Range(0, 2);
+        repairType = Random.Range(0, 7);
         errorSound = false;
         rs.isBroken = false;
         isReload = true;
         Debug.Log(repairType);
     }
-    
+
 }

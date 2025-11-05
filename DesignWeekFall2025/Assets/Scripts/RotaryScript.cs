@@ -1,13 +1,12 @@
-using Phidget22;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RotaryScript : MonoBehaviour
 {
-    Encoder encoder;
     public float pos;
     public float smoothTime;
 
@@ -27,51 +26,23 @@ public class RotaryScript : MonoBehaviour
     public AudioSource chargeSound;
     public AudioClip audioClip;
     bool chargeSoundPlayed;
-    void Start()
-    {
-        encoder = new Encoder();
-        encoder.Open();
-        encoder.HubPort = 3;
-
-        //cam = Camera.main;
-    }
+    float time;
+    public float turnSpeed;
 
     // Update is called once per frame
     void Update()
     {        
         //changes facing direction of the turret for spawning bullets later
-        pos = encoder.Position;
         facingDir = new Vector3 (transform.rotation.x, transform.rotation.y, transform.rotation.z);
         facingDir.y = pos*3.6f;
         transform.rotation = Quaternion.Euler(facingDir);
 
-        //modifies the crosshair position
-        Vector3 cpos;
-        cpos = new Vector3(pos * 32,0,0);
-        if(crosshair.anchoredPosition.x != cpos.x && smoothTime < 1)
-        {
-            smoothTime += 10 * Time.deltaTime;
-        }
-        if (smoothTime > 1)
-        {
-            smoothTime = 1;
-        }
-        crosshair.anchoredPosition = new Vector3(Mathf.Lerp(crosshair.anchoredPosition.x, cpos.x, smoothTime), 0, 0);
+        Vector3 mousePos = Input.mousePosition;
+        crosshair.anchoredPosition = Vector3.MoveTowards(crosshair.anchoredPosition, mousePos, Time.deltaTime * turnSpeed);
         smoothTime = 0;
 
-        //clamps the distance of the crosshair
-        if (crosshair.anchoredPosition.x > 512)
-        {
-            crosshair.anchoredPosition = new Vector3 (512,0,0);
-        }
-        if (crosshair.anchoredPosition.x < -512)
-        {
-            crosshair.anchoredPosition = new Vector3(-512, 0, 0);
-        }
-
-
         //firing (replace with proper input when available)
-        if (bs.pullCordState == true && isBroken == false)
+        if (Input.GetMouseButton(0) && isBroken == false)
         {
             if (!chargeSoundPlayed)
             {
@@ -87,7 +58,7 @@ public class RotaryScript : MonoBehaviour
                 //do a malfunction here
             }
         }
-        if (bs.pullCordState == false && isBroken == false)
+        if (!Input.GetMouseButton(0) && isBroken == false)
         {
             chargeSoundPlayed = false;
             chargeSound.Stop();
@@ -137,16 +108,6 @@ public class RotaryScript : MonoBehaviour
             isBroken = true;
             Debug.Log("break");
         }
-
-
-
-
-    }
-
-    private void OnApplicationQuit()
-    {
-        encoder.Close();
-        encoder.Dispose();
     }
 
     private void OnTriggerEnter(Collider collision)
